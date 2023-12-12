@@ -15,8 +15,7 @@ services:
       - DEFAULT_WORKSPACE=/workspace #optional
     volumes:
       - code-server:/config
-      - mosquitto:/config/mosquitto
-      - mxi-config:/config/mxi-config
+      - ladder99:/config/workspace/ladder99
     ports:
       - 8443:8443
       - 7887:7887
@@ -25,7 +24,5 @@ services:
 volumes:
   code-server:
     external: true
-  mosquitto:
-    external: true
-  mxi-config:
+  ladder99:
     external: true
