@@ -1,0 +1,31 @@
+version: "2.1"
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server:latest
+    container_name: code-server
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Etc/UTC
+      - PASSWORD=roguebuck1 #optional
+      # - HASHED_PASSWORD= #optional
+      - SUDO_PASSWORD=roguebuck1 #optional
+      # - SUDO_PASSWORD_HASH= #optional
+      # - PROXY_DOMAIN=code-server.my.domain #optional
+      - DEFAULT_WORKSPACE=/workspace #optional
+    volumes:
+      - code-server:/config
+      - mosquitto:/config/mosquitto
+      - mxi-config:/config/mxi-config
+    ports:
+      - 8443:8443
+      - 7887:7887
+    network_mode: "host"    
+    restart: unless-stopped
+volumes:
+  code-server:
+    external: true
+  mosquitto:
+    external: true
+  mxi-config:
+    external: true
