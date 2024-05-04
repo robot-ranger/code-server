@@ -18,8 +18,7 @@ services:
       - ladder99:/config/workspace/ladder99
     ports:
       - 8443:8443
-      - 7887:7887
-    network_mode: "host"    
+    network_mode: bridge   
     restart: unless-stopped
 volumes:
   code-server:
