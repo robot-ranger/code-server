@@ -15,13 +15,11 @@ services:
       - DEFAULT_WORKSPACE=/workspace #optional
     volumes:
       - code-server:/config
-      - ladder99:/config/workspace/ladder99
+      - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 8443:8443
-    network_mode: bridge   
+    network_mode: host   
     restart: unless-stopped
 volumes:
   code-server:
-    external: true
-  ladder99:
     external: true
