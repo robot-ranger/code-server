@@ -1,7 +1,8 @@
 FROM lscr.io/linuxserver/code-server:latest
 
 RUN apt update \
-&& apt install -y python3 python3-pip telnet iputils-ping
+&& apt install -y python3 python3-pip telnet
+# iputils-ping
 
 # Install Docker CE CLI
 RUN apt update \
